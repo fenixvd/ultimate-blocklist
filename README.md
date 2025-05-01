@@ -20,7 +20,7 @@
 
 ## 📥 Как использовать:
 В интерфейсе AdGuard Home добавь фильтр по ссылке:
-
+https://raw.githubusercontent.com/fenixvd/ultimate-blocklist/refs/heads/main/blocklist.txt
 
 ## 🤖 Автор
 [fenixvd](https://github.com/fenixvd)
