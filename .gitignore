@@ -1,0 +1,7 @@
+# Ignore temporary and private files
+*.tmp
+*.temp
+*.swp
+*.swo
+blocklist.prev.txt
+*.sh
