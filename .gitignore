@@ -5,3 +5,4 @@
 *.swo
 blocklist.prev.txt
 *.sh
+*.log
