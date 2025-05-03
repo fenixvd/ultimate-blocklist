@@ -6,3 +6,4 @@
 blocklist.prev.txt
 *.sh
 *.log
+.last_stats
