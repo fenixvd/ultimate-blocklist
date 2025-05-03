@@ -7,3 +7,4 @@ blocklist.prev.txt
 *.sh
 *.log
 .last_stats
+README.template.md
