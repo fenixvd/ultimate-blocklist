@@ -1,35 +1,58 @@
-# 🛑 AdGuard Blocklist by fenix_vd
+# 🛑 Ultimate Blocklist by fenix_vd
 
-Этот репозиторий содержит объединённый черный список доменов для использования в **AdGuard Home**, собранный из проверенных источников.
+Объединённый список доменов для **DNS-фильтрации** (AdGuard Home, Technitium DNS, Pi-hole).
+Собирается автоматически из фильтров uBlock Origin и hosts-списков.
 
 ## 📋 Статистика
 
 | 🕒 Последнее обновление | ``2026-07-29 00:28``   |
 | 🔢 Всего доменов       | ``354390``  |
-| 🆕 Новых за сегодня     | ``354390``    |
+| 🆕 Новых за сутки      | ``354390``    |
 | 🗑️ Удалённых           | ``0``|
 
 ---
 
-## ✅ Основные фильтры:
-- StevenBlack Hosts
-- Yandex ADS
+## ✅ Источники
+
+**Набор uBlock Origin:**
+- uBlock filters — Ads, Badware risks, Privacy, Quick fixes, Unbreak
+- EasyList
+- AdGuard — Ads
+- EasyPrivacy
+- Online Malicious URL Blocklist (urlhaus)
+- Peter Lowe’s Ad and tracking server list
+- AdGuard — Russian filter
+- RU AdList: Counters
+
+**Hosts-списки:**
 - Schakal.ru
-- Energized Ultimate
-- HaGeZi Anti-Malware
-- EasyList + RuAdList
-- AdGuard Hostlists Registry
-- И другие
 
-## 📋 Общее количество записей:
-`~2+ млн` уникальных доменов
+## ⚙️ Как это собирается
 
-## 🕒 Обновление:
-Ежедневно автоматически через cron.
+Списки для браузерных блокировщиков содержат правила, которые DNS-резолвер понять не может:
+косметические (`##`, `#?#`), правила с модификаторами (`$popup`, `$csp`, `$third-party`),
+regex- и path-правила. Если вывалить их в DNS-блоклист как есть, резолвер воспримет
+перечисленные в них домены как подлежащие блокировке — и заблокирует тысячи нормальных сайтов.
 
-## 📥 Как использовать:
-В интерфейсе AdGuard Home добавь фильтр по ссылке:
+Поэтому парсер берёт **только** hosts-записи и чистые сетевые правила вида `||domain^`,
+всё остальное отбрасывает. Каждый домен проходит валидацию и проверку TLD.
+Дополнительно вычитается собственный allowlist.
+
+Сборка отменяется, если список внезапно уменьшился более чем вдвое или источник
+отдал HTML вместо данных.
+
+## 📥 Как использовать
+
+Добавь фильтр по ссылке:
+
+```
 https://raw.githubusercontent.com/fenixvd/ultimate-blocklist/refs/heads/main/blocklist.txt
+```
+
+## 🕒 Обновление
+
+Ежедневно, автоматически через cron.
 
 ## 🤖 Автор
+
 [fenixvd](https://github.com/fenixvd)

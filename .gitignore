@@ -8,3 +8,6 @@ blocklist.prev.txt
 *.log
 .last_stats
 README.template.md
+.env
+*.bak-*
+allowlist.txt
